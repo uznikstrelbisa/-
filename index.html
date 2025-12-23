@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Кюйши</title>
+  <title>Кюйши Казахстана</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #f0f0f0;
-      padding: 50px;
       text-align: center;
+      padding: 50px;
     }
 
     .button {
@@ -23,41 +23,35 @@
       border-radius: 5px;
     }
 
-    /* Скрываем чекбоксы */
-    input[type="checkbox"] {
-      display: none;
-    }
-
-    /* Окно с композициями */
-    .popup {
+    /* Модальное окно */
+    .modal {
       display: none;
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .modal-content {
       background: white;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
       width: 300px;
       text-align: left;
-    }
-
-    /* Показываем окно, если чекбокс активен */
-    input[type="checkbox"]:checked + label + .popup {
-      display: block;
-    }
-
-    .popup h3 {
-      margin-top: 0;
+      position: relative;
     }
 
     .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
       background: red;
       color: white;
       border: none;
       padding: 5px 10px;
-      float: right;
       cursor: pointer;
       border-radius: 5px;
     }
@@ -69,38 +63,52 @@
 </head>
 <body>
 
-  <!-- Коркыт-ата -->
-  <input type="checkbox" id="korkyt">
-  <label class="button" for="korkyt">Коркыт-ата</label>
-  <div class="popup">
-    <button class="close-btn" onclick="document.getElementById('korkyt').checked=false;">X</button>
-    <h3>Коркыт-ата</h3>
-    <div class="composition">Композиция 1</div>
-    <div class="composition">Композиция 2</div>
-    <div class="composition">Композиция 3</div>
+  <h1>Кюйши Казахстана</h1>
+
+  <button class="button" onclick="openModal('korkyt')">Коркыт-ата</button>
+  <button class="button" onclick="openModal('ketbuga')">Кетбуга</button>
+  <button class="button" onclick="openModal('kurmangazy')">Курмангазы</button>
+
+  <!-- Модальные окна -->
+  <div id="korkyt" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal('korkyt')">X</button>
+      <h3>Коркыт-ата</h3>
+      <div class="composition">Таңғы ән</div>
+      <div class="composition">Қара жорға</div>
+      <div class="composition">Сарыарқа</div>
+    </div>
   </div>
 
-  <!-- Кетбуга -->
-  <input type="checkbox" id="ketbuga">
-  <label class="button" for="ketbuga">Кетбуга</label>
-  <div class="popup">
-    <button class="close-btn" onclick="document.getElementById('ketbuga').checked=false;">X</button>
-    <h3>Кетбуга</h3>
-    <div class="composition">Композиция 1</div>
-    <div class="composition">Композиция 2</div>
-    <div class="composition">Композиция 3</div>
+  <div id="ketbuga" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal('ketbuga')">X</button>
+      <h3>Кетбуга</h3>
+      <div class="composition">Кетбуга 1</div>
+      <div class="composition">Кетбуга 2</div>
+      <div class="composition">Кетбуга 3</div>
+    </div>
   </div>
 
-  <!-- Курмангазы -->
-  <input type="checkbox" id="kurmangazy">
-  <label class="button" for="kurmangazy">Курмангазы</label>
-  <div class="popup">
-    <button class="close-btn" onclick="document.getElementById('kurmangazy').checked=false;">X</button>
-    <h3>Курмангазы</h3>
-    <div class="composition">Композиция 1</div>
-    <div class="composition">Композиция 2</div>
-    <div class="composition">Композиция 3</div>
+  <div id="kurmangazy" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal('kurmangazy')">X</button>
+      <h3>Курмангазы</h3>
+      <div class="composition">Адай</div>
+      <div class="composition">Сарыарқа</div>
+      <div class="composition">Балбырауын</div>
+    </div>
   </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+  </script>
 
 </body>
 </html>
