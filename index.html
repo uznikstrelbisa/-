@@ -70,62 +70,150 @@
   <button class="button" onclick="openModal('kurmangazy')">Курмангазы</button>
 
   <!-- Модальные окна -->
+  <!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кюйши Казахстана</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 30px;
+      margin: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 5px;
+      z-index: 1; /* чтобы кнопки были над фоном */
+      position: relative;
+    }
+
+    /* Модальное окно */
+    .modal {
+      display: none; /* скрыто по умолчанию */
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 100; /* над всем */
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: left;
+      position: relative;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .composition {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Кюйши Казахстана</h1>
+
+  <button class="button" onclick="openModal('korkyt')">Коркыт-ата</button>
+  <button class="button" onclick="openModal('ketbuga')">Кетбуга</button>
+  <button class="button" onclick="openModal('kurmangazy')">Курмангазы</button>
+
   <!-- Коркыт-ата -->
-<div id="korkyt" class="modal">
-  <div class="modal-content">
-    <button class="close-btn" onclick="closeModal('korkyt')">X</button>
-    <h3>Коркыт-ата</h3>
-    <div class="composition">
-      <strong>Таңғы ән</strong>
-      <p>Эта композиция символизирует начало дня и пробуждение природы. Исполняется на кобызе с медленным, задумчивым темпом.</p>
-    </div>
-    <div class="composition">
-      <strong>Қара жорға</strong>
-      <p>Один из самых популярных кюев, часто сопровождает народные танцы. История корнями уходит в XVIII век.</p>
-    </div>
-    <div class="composition">
-      <strong>Сарыарқа</strong>
-      <p>Посвящена степи Сарыарка. Передает её величие и простор через мелодичное звучание кобыза.</p>
+  <div id="korkyt" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal('korkyt')">X</button>
+      <h3>Коркыт-ата</h3>
+      <div class="composition">
+        <strong>Таңғы ән</strong>
+        <p>Эта композиция символизирует начало дня и пробуждение природы.</p>
+      </div>
+      <div class="composition">
+        <strong>Қара жорға</strong>
+        <p>Популярный кюй, сопровождает народные танцы.</p>
+      </div>
+      <div class="composition">
+        <strong>Сарыарқа</strong>
+        <p>Посвящена степи Сарыарка, передает её простор через мелодию кобыза.</p>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Кетбуга -->
-<div id="ketbuga" class="modal">
-  <div class="modal-content">
-    <button class="close-btn" onclick="closeModal('ketbuga')">X</button>
-    <h3>Кетбуга</h3>
-    <div class="composition">
-      <strong>Кетбуга 1</strong>
-      <p>История композиции 1...</p>
-    </div>
-    <div class="composition">
-      <strong>Кетбуга 2</strong>
-      <p>История композиции 2...</p>
-    </div>
-    <div class="composition">
-      <strong>Кетбуга 3</strong>
-      <p>История композиции 3...</p>
+  <!-- Кетбуга -->
+  <div id="ketbuga" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal('ketbuga')">X</button>
+      <h3>Кетбуга</h3>
+      <div class="composition">
+        <strong>Кетбуга 1</strong>
+        <p>История композиции 1...</p>
+      </div>
+      <div class="composition">
+        <strong>Кетбуга 2</strong>
+        <p>История композиции 2...</p>
+      </div>
+      <div class="composition">
+        <strong>Кетбуга 3</strong>
+        <p>История композиции 3...</p>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Курмангазы -->
-<div id="kurmangazy" class="modal">
-  <div class="modal-content">
-    <button class="close-btn" onclick="closeModal('kurmangazy')">X</button>
-    <h3>Курмангазы</h3>
-    <div class="composition">
-      <strong>Адай</strong>
-      <p>Кюй «Адай» описывает характер одноимённого племени и его быстрый, энергичный танец.</p>
-    </div>
-    <div class="composition">
-      <strong>Сарыарқа</strong>
-      <p>Передаёт величие степей и трудности кочевой жизни. Считается одним из главных произведений Курмангазы.</p>
-    </div>
-    <div class="composition">
-      <strong>Балбырауын</strong>
-      <p>Содержит мелодические мотивы, передающие радость и гармонию природы.</p>
+  <!-- Курмангазы -->
+  <div id="kurmangazy" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal('kurmangazy')">X</button>
+      <h3>Курмангазы</h3>
+      <div class="composition">
+        <strong>Адай</strong>
+        <p>Кюй описывает одноимённое племя и его энергичный танец.</p>
+      </div>
+      <div class="composition">
+        <strong>Сарыарқа</strong>
+        <p>Передаёт величие степей и трудности кочевой жизни.</p>
+      </div>
+      <div class="composition">
+        <strong>Балбырауын</strong>
+        <p>Мелодические мотивы, передающие радость и гармонию природы.</p>
+      </div>
     </div>
   </div>
-</div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
