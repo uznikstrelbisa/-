@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кюйши</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 50px;
+      text-align: center;
+    }
+
+    .button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 30px;
+      margin: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 5px;
+    }
+
+    /* Скрываем чекбоксы */
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    /* Окно с композициями */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      width: 300px;
+      text-align: left;
+    }
+
+    /* Показываем окно, если чекбокс активен */
+    input[type="checkbox"]:checked + label + .popup {
+      display: block;
+    }
+
+    .popup h3 {
+      margin-top: 0;
+    }
+
+    .close-btn {
+      background: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      float: right;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .composition {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Коркыт-ата -->
+  <input type="checkbox" id="korkyt">
+  <label class="button" for="korkyt">Коркыт-ата</label>
+  <div class="popup">
+    <button class="close-btn" onclick="document.getElementById('korkyt').checked=false;">X</button>
+    <h3>Коркыт-ата</h3>
+    <div class="composition">Композиция 1</div>
+    <div class="composition">Композиция 2</div>
+    <div class="composition">Композиция 3</div>
+  </div>
+
+  <!-- Кетбуга -->
+  <input type="checkbox" id="ketbuga">
+  <label class="button" for="ketbuga">Кетбуга</label>
+  <div class="popup">
+    <button class="close-btn" onclick="document.getElementById('ketbuga').checked=false;">X</button>
+    <h3>Кетбуга</h3>
+    <div class="composition">Композиция 1</div>
+    <div class="composition">Композиция 2</div>
+    <div class="composition">Композиция 3</div>
+  </div>
+
+  <!-- Курмангазы -->
+  <input type="checkbox" id="kurmangazy">
+  <label class="button" for="kurmangazy">Курмангазы</label>
+  <div class="popup">
+    <button class="close-btn" onclick="document.getElementById('kurmangazy').checked=false;">X</button>
+    <h3>Курмангазы</h3>
+    <div class="composition">Композиция 1</div>
+    <div class="composition">Композиция 2</div>
+    <div class="composition">Композиция 3</div>
+  </div>
+
+</body>
+</html>
